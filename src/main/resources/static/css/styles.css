@@ -1,0 +1,11 @@
+.even{
+    background-color: burlywood;
+}
+.odd{
+    background-color: greenyellow;
+}
+
+.list {
+    width: 80%;
+    margin: 10px auto;
+}

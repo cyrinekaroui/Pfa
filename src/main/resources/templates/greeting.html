@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Greeting page</title>
+    <script type="text/javascript"></script>
+</head>
+
+<body>
+  
+    <div th:text="|<h1>Hello ${name} !</h1>|">hello naame</div> 
+    <div th:utext="|<h1>Hello ${name} !</h1>|">hello naame</div> 
+    <div th:if="${age>=18}">
+        <h2 th:text="|votre age est ${age}  ans|"> </h2>
+    </div>
+    <div th:unless="${age>=18}">
+        <h2 th:text="|votre age est ${age}  ans, vous êtes mineur|"> </h2>
+    </div>
+
+    <div th:each="n: ${names}">
+        <h3 th:text="${n}"></h3>
+    </div>
+    <th:bloc th:each="n,state: ${names}">
+        <h3 th:text="${state.index}+'-'+${n}"></h3>
+    </th:bloc> 
+    <a th:href="@{/greeting?name=demo2}">monlien</a>
+    <img  th:src="@{images/logo.png}" alt="monlogo"/>
+    <img  th:src="@{|images/${logo}|}" alt="monlogo"/>
+
+  <!--  <p th:text=" ' Hello, ' + ${name} + ', you are '+ ${age}+' years old !'"> </p>
+    <p th:text=" | Hello, ${name} , you are  ${age} years old !'|"> </p>-->
+    <!--inject script--> 
+    <!--http://localhost:8080/greeting?name=%3Cscript%3Ealert(%22hello%22);%3C/script%3Edemo&age=15-->
+   <!-- <p th:utext=" | Hello, ${name} , you are  ${age} years old !'|"> </p>
+    <div th:if="${user.name}">
+        <p th:text=" ' Hello, ' + ${user.name} + '!'"> </p>
+    </div>
+    <div th:unless="${user.name}">
+        <p> hello world!</p>
+    </div> -->
+    <th-bloc th:each="user,state:${users}">
+        <div th:switch="${user.role}">
+            <p th:case="'admin'">User : <th:block th:text="|${state.count}-${user.name}|"> </th:block> is an administrator</p>
+            <p th:case="'user'">User : <th:block th:text="|${state.count}-${user.name}|"> </th:block>  is a user</p>
+            <p th:case="'staff'">User : <th:block th:text="|${state.count}-${user.name}|"> </th:block> is a staff</p>
+            <p th:case="*">User is some other thing</p>
+        </div>
+    </th-bloc>
+   
+</body>
+
+</html>

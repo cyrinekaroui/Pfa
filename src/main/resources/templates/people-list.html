@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript"></script>
+<link  th:replace="~{/fragments/template::link}" rel="stylesheet" > 
+
+</head>
+<body>
+     <th:block th:replace="~{/fragments/template::header}"></th:block>
+    <h1>People List</h1>
+    <a th:href="@{/add-person}"> Add Person</a>
+    <!-- <div th:if="${!#lists.isEmpty(people)}"> -->
+   <div th:each="person, state:${people}" class="list" th:classappend="${state.even}?even:odd"> 
+      <!--  <div th:each="person, state:${people}"> -->
+        <th:block th:text="|Id:  ${person.id} -Name: ${person.name} - Age: ${person.age}|"></th:block>
+            <a th:href="@{|/delete-person/${person.id}|}">Delete</a> 
+            <a th:href="@{|/update-person/${person.id}|}">Update</a> 
+        </div>
+    <!-- </div> -->
+    <div th:if="${#lists.isEmpty(people)}">
+        No person found !
+    </div>   
+
+     <!-- Import of script -->
+	 <th:block th:insert="~{fragments/template :: body/script}"></th:block> 
+
+</body>
+</html>
