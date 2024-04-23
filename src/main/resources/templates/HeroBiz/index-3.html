@@ -1032,20 +1032,23 @@
           <label class="form-check-label" for="seventhCheckbox">Drugs</label>
         </li>
       </ul>
-      <button type="button" class="btn btn-primary">Next</button>
+      <br>
+      <button type="submit" class="btn btn-primary nextButton">Next</button>
 
     </div>
       
 
     </br>
-    <div class="question hidden" id="question-date">
+    <div  id="question2">
       <h4>When was your sober start date?</h4>
       <p>Date: <input type="text" id="datepicker"></p>
+      <button type="submit" class="btn btn-primary nextButton">Next</button>
+
     </div>
     </ul>
   </br>
   
-  <div id="question2">
+  <div id="question3">
   <h5>How many days per week did you use</h5>  
     <select class="form-select" aria-label="Default select example">
       <option selected>Open this select menu</option>
@@ -1057,48 +1060,81 @@
       <option value="6">Six days</option>
       <option value="7">Seven days</option>
     </select>
-    <button type="button" class="btn btn-primary">Next</button>
-
+    <br>
+    <button type="submit" class="btn btn-primary nextButton ">Next</button>
+</div>
   </br>
+  <div id="question4">
     <h6>How many times per day did you use</h6>  
     <div class="input-group mb-3">
       <input type="text" class="form-control" placeholder="Type your answer here" aria-label="Type your answer here" aria-describedby="button-addon2">
-      <button class="btn btn-outline-secondary" type="button" id="button-addon2">Submit</button>
+      <button class="btn btn-outline-secondary nextButton" type="submit" id="button-addon2 ">Submit</button>
     </div>
+      <br>
+      <button type="submit" class="btn btn-primary nextButton  ">Next</button>
+
+    
+
   </div>
 
-  <div id="question3">
+  <div id="question5">
   <h7>I want to stay sober because...</h7>
   <div class="input-group mb-3">
     <input type="text" class="form-control" placeholder="Because.." aria-label="Because.." aria-describedby="button-addon2">
     <button class="btn btn-outline-secondary" type="button" id="button-addon2">Submit</button>
   </div>
+  <br>
+  <button type="submit" class="btn btn-primary nextButton">Next</button>
 
   </div>
-  <button type="button" class="btn btn-primary">Next</button>
 
-</div>
 </div>
 <script>
+const question1 = document.getElementById('question1');
+const question2 = document.getElementById('question2');
+const question3 = document.getElementById('question3');
+const question4 = document.getElementById('question4');
+const question5 = document.getElementById('question5');
+
+question1.style.display= "block";
+question2.style.display= "none";
+question3.style.display= "none";
+question4.style.display= "none";
+question5.style.display= "none";
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const nextButtons = document.querySelectorAll('.nextButton');
   let currentQuestion = 1;
 
-function nextQuestion() {
-  const currentQuestionElement = document.getElementById(`question${currentQuestion}`);
-  const nextQuestionElement = document.getElementById(`question${currentQuestion + 1}`);
+  function nextQuestion() {
+    const currentQuestionElement = document.getElementById(`question${currentQuestion}`);
+    const nextQuestionElement = document.getElementById(`question${currentQuestion + 1}`);
 
-  if (currentQuestionElement && nextQuestionElement) {
-    currentQuestionElement.style.display = 'none';
-    nextQuestionElement.style.display = 'block';
-    currentQuestion++;
-  } else {
-    alert('End of the quiz!');
+    if (currentQuestionElement && nextQuestionElement) {
+      currentQuestionElement.style.display = 'none';
+      nextQuestionElement.style.display = 'block';
+      currentQuestion++;
+    } else {
+      alert('End of the quiz!');
+    }
   }
-}
+
+  nextButtons.forEach(button => {
+    button.addEventListener('click', nextQuestion);
+  });
+});
+
 
 </script>
+
      
 
-     <!-- End Quiz Section -->
+     
       <!-- End Quiz Section -->
     <!-- ======= Team Section ======= -->
     <section id="team" class="team">
