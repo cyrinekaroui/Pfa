@@ -1,9 +1,13 @@
 package com.example.greetingmvc.web.models;
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.*;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 @AllArgsConstructor
+@NoArgsConstructor
 @Data
 @Entity
 @Table(name = "users") // Specify the name of the table in the database
@@ -25,37 +29,13 @@ public class User {
     @JoinColumn(name = "specialist_id")
     private Specialist specialist;
 
-    // Constructors, getters, and setters
-    // Constructors
-    public User() {
-    }
+    @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @JoinTable(
+            name="users_roles",
+            joinColumns={@JoinColumn(name="USER_ID", referencedColumnName="ID")},
+            inverseJoinColumns={@JoinColumn(name="ROLE_ID", referencedColumnName="ID")})
+    private List<Role> roles = new ArrayList<>();
 
-    public User(String email, String telNumber, String password) {
-        this.email = email;
-        this.telNumber = telNumber;
-        this.password = password;
-    }
 
-    // Getters and Setters
-    // Id
-    public Long getId() {
-        return id;
-    }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    // Email
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    // TelNumber
-    public String getTelNumber() {
-        return telNumber;
-    }}
+}
