@@ -14,20 +14,28 @@
           <div class="container py-5 h-100">
             <div class="row justify-content-center align-items-center h-100">
               <div class="col-12 col-lg-9 col-xl-7">
+                <form
+                method="post"
+                role="form"
+                th:action="@{/register/save}"
+                th:object="${user}">
                 <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
                   <div class="card-body p-4 p-md-5">
                     <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Registration Form</h3>
-                    <form th:action="@{/submitForm}" method="post">
                       <div class="row">
                         <div class="col-md-6 mb-4">
                           <div data-mdb-input-init class="form-outline">
-                            <input type="text" id="firstName" class="form-control form-control-lg" th:field="${user.firstName}" />
+                            <input type="text" id="firstName" class="form-control form-control-lg" th:field="*{firstName}" />
+                            <p th:errors = "*{firstName}" class="text-danger"
+                            th:if="${#fields.hasErrors('firstName')}"></p>
                             <label class="form-label" for="firstName">First Name</label>
                           </div>
                         </div>
                         <div class="col-md-6 mb-4">
                           <div data-mdb-input-init class="form-outline">
-                            <input type="text" id="lastName" class="form-control form-control-lg" th:field="${user.lastName}" />
+                            <input type="text" id="lastName" class="form-control form-control-lg" th:field="*{lastName}" />
+                            <p th:errors = "*{lastName}" class="text-danger"
+                            th:if="${#fields.hasErrors('lastName')}"></p>
                             <label class="form-label" for="lastName">Last Name</label>
                           </div>
                         </div>
