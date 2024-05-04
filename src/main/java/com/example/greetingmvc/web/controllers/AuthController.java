@@ -4,9 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.greetingmvc.web.models.Dto.UserDto;
-
-import ch.qos.logback.core.model.Model;
-
+import org.springframework.ui.Model;
 @Controller
 public class AuthController {
 
