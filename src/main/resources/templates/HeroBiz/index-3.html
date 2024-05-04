@@ -802,112 +802,30 @@ document.addEventListener('DOMContentLoaded', function () {
     <!-- End of alert   -->
   <br>
 
-   <!-- Login section -->
-      <section class="text-center" id="loginpage">
-        <div class="p-5 bg-image" style="
-        background-image: url('');
-        height: 300px;
-        "></div>
 
+    <script>
+      const allowButton = document.querySelector('.notifbtn.btn-success'); // Select Allow button
+      const dontAllowButton = document.querySelector('.notifbtn.btn-danger'); // Select Don't Allow button
 
-        <div class="card mx-4 mx-md-5 shadow-5-strong bg-body-tertiary" style="
-        margin-top: -100px;
-        backdrop-filter: blur(30px);
-        ">x
-          <div class="card-body py-5 px-md-5">
+      allowButton.addEventListener('click', () => {
+        window.location.href = "/templates/HeroBiz/register.html";
+        // Handle Allow click (scroll to login)
+        const loginSection = document.getElementById("register"); // Replace with your login section ID
+        if (loginSection) {
+          loginSection.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to login section
+        }
+      });
 
-            <div class="row d-flex justify-content-center">
-              <div class="col-lg-8">
-                <h2 class="fw-bold mb-5">Sign up now</h2>
-                <form>
-                  <!-- 2 column grid layout with text inputs for the first and last names -->
-                  <div class="row">
-                    <div class="col-md-6 mb-4">
-                      <div data-mdb-input-init class="form-outline">
-                        <input type="text" id="form3Example1" class="form-control" />
-                        <label class="form-label" for="form3Example1">First name</label>
-                      </div>
-                    </div>
-                    <div class="col-md-6 mb-4">
-                      <div data-mdb-input-init class="form-outline">
-                        <input type="text" id="form3Example2" class="form-control" />
-                        <label class="form-label" for="form3Example2">Last name</label>
-                      </div>
-                    </div>
-                  </div>
+      dontAllowButton.addEventListener('click', () => {
+        // Handle Don't Allow click (scroll to login)
+        const loginSection = document.getElementById("register"); // Replace with your login section ID
+        if (loginSection) {
+          loginSection.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to login section
+        }
+      });
 
-                  <!-- Email input -->
-                  <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="email" id="emailbutton" class="form-control" />
-                    <label class="form-label" for="form3Example3">Email address</label>
-                  </div>
+    </script>
 
-                  <!-- Password input -->
-                  <div data-mdb-input-init class="form-outline mb-4">
-                    <input type="password" id="passwordbutton" class="form-control" />
-                    <label class="form-label" for="form3Example4">Password</label>
-                  </div>
-
-                  <!-- Checkbox -->
-                  <div class="form-check d-flex justify-content-center mb-4">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
-                    <label class="form-check-label" for="form2Example33">
-                      I accept all the agreements
-                    </label>
-                  </div>
-
-                  <!-- Submit button -->
-                  <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-block mb-4">
-                    Sign up
-                  </button>
-
-                  <!-- Register buttons -->
-                  <div class="text-center">
-                    <p>or sign up with:</p>
-                    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                      <i class="fab fa-facebook-f"></i>
-                    </button>
-
-                    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                      <i class="fab fa-google"></i>
-                    </button>
-
-                    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                      <i class="fab fa-twitter"></i>
-                    </button>
-
-                    <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                      <i class="fab fa-github"></i>
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    <!-- end of login-->
-<script>
-  const allowButton = document.querySelector('.notifbtn.btn-success'); // Select Allow button
-  const dontAllowButton = document.querySelector('.notifbtn.btn-danger'); // Select Don't Allow button
-
-  allowButton.addEventListener('click', () => {
-    // Handle Allow click (scroll to login)
-    const loginSection = document.getElementById("loginpage"); // Replace with your login section ID
-    if (loginSection) {
-      loginSection.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to login section
-    }
-  });
-
-  dontAllowButton.addEventListener('click', () => {
-    // Handle Don't Allow click (scroll to login)
-    const loginSection = document.getElementById("loginpage"); // Replace with your login section ID
-    if (loginSection) {
-      loginSection.scrollIntoView({ behavior: "smooth" }); // Smooth scroll to login section
-    }
-  });
-
-</script>
 
 
 
