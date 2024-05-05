@@ -29,14 +29,11 @@
             role="form"
             th:action="@{/register/save}"
             th:object="${user}">
-            <!-- 2 column grid layout with text inputs for the first and last names -->
+            <!-- 2 column grid lyout with text inputs for the first and last names -->
             <div class="row">
               <div class="col-md-6 mb-4">
                 <div data-mdb-input-init class="form-outline">
                   <input type="text" id="form3Example1" class="form-control"th:field="*{firstName}" />
-                  <p th:errors = "*{firstName}" class="text-danger"
-              th:if="${#fields.hasErrors('firstName')}"></p>
-            </div>
 
                   <label class="form-label" for="form3Example1">First name</label>
                 </div>
@@ -44,8 +41,6 @@
               <div class="col-md-6 mb-4">
                 <div data-mdb-input-init class="form-outline">
                   <input type="text" id="form3Example2" class="form-control"th:field="*{lastName}"/>
-                  <p th:errors = "*{lastName}" class="text-danger"
-                  th:if="${#fields.hasErrors('lastName')}"></p>
                   <label class="form-label" for="form3Example2">Last name</label>
                 </div>
               </div>
@@ -54,16 +49,12 @@
             <!-- Email input -->
             <div data-mdb-input-init class="form-outline mb-4">
               <input type="email" id="emailbutton" class="form-control"th:field="*{email}" />
-              <p th:errors = "*{email}" class="text-danger"
-              th:if="${#fields.hasErrors('email')}"></p>
               <label class="form-label" for="form3Example3">Email address</label>
             </div>
 
             <!-- Password input -->
             <div data-mdb-input-init class="form-outline mb-4">
               <input type="password" id="passwordbutton" class="form-control" th:field="*{password}" />
-              <p th:errors = "*{password}" class="text-danger"
-              th:if="${#fields.hasErrors('password')}"></p>
               <label class="form-label" for="form3Example4">Password</label>
             </div>
 
