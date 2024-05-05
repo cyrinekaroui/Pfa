@@ -12,11 +12,11 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "users") // Specify the name of the table in the database
 public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    
+    @Column(name = "ID")  
+    private  Long id;
 
-    @Column(nullable=false)
+    @Column( name= "name" ,nullable=false)
     private String name;
 
     @Column(name = "email", nullable = false, unique = true)

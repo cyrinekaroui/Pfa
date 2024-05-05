@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class AuthController {
     private UserService userService;
+    private long idCount=0;
+    
 
     public AuthController(UserService userService) {
         this.userService = userService;
@@ -59,6 +61,7 @@ public class AuthController {
         
 
         userService.saveUser(userDto);
+
         return "redirect:/register?success";
     }
     // handler method to handle login request

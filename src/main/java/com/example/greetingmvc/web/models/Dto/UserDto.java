@@ -1,5 +1,7 @@
 package com.example.greetingmvc.web.models.Dto;
 
+import org.hibernate.internal.build.AllowPrintStacktrace;
+
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
@@ -14,7 +16,6 @@ import lombok.Setter;
 public class UserDto
 {
 
-    private Long id;
     @NotEmpty
     private String firstName;
     @NotEmpty
@@ -22,6 +23,8 @@ public class UserDto
     @NotEmpty(message = "Email should not be empty")
     @Email
     private String email;
+    private String tel;
     @NotEmpty(message = "Password should not be empty")
     private String password;
+
 }
