@@ -8,6 +8,6 @@ public class ProfileController {
 
     @GetMapping("/profile")
     public String userProfile() {
-        return "profile"; // Return the name of your profile view/template
+        return "profile"; 
     }
 }
