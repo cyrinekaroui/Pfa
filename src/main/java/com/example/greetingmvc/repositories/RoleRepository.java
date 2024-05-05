@@ -1,8 +1,10 @@
-package com.example.greetingmvc.web.repositories;
+package com.example.greetingmvc.repositories;
 
-import com.example.greetingmvc.web.models.Role;
+import com.example.greetingmvc.models.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface RoleRepository extends JpaRepository<Role, Long> {
 
     Role findByName(String name);

@@ -1,4 +1,4 @@
-package com.example.greetingmvc.web.models;
+package com.example.greetingmvc.models;
 import javax.persistence.*;
 
 import lombok.AllArgsConstructor;

@@ -1,23 +1,27 @@
-package com.example.greetingmvc.web.controllers;
+package com.example.greetingmvc.controllers;
 
 
-import com.example.greetingmvc.web.service.UserService;
-import com.example.greetingmvc.web.models.User;
-import jakarta.validation.Valid;
+import com.example.greetingmvc.models.Dto.UserDto;
+import com.example.greetingmvc.service.UserService;
+import com.example.greetingmvc.models.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import java.util.List;
 
 
-import com.example.greetingmvc.web.models.Dto.UserDto;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import javax.validation.Valid;
+
 @Controller
+
 public class AuthController {
     private UserService userService;
-
+    @Autowired
     public AuthController(UserService userService) {
         this.userService = userService;
     }

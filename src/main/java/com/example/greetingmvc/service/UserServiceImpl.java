@@ -1,13 +1,13 @@
-package com.example.greetingmvc.web.service;
-
+package com.example.greetingmvc.service;
+import com.example.greetingmvc.models.Dto.UserDto;
+import com.example.greetingmvc.models.Role;
+import com.example.greetingmvc.models.User;
+import com.example.greetingmvc.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import com.example.greetingmvc.web.models.Role;
 
-import com.example.greetingmvc.web.models.User;
-import com.example.greetingmvc.web.models.Dto.UserDto;
-import com.example.greetingmvc.web.repositories.RoleRepository;
-import com.example.greetingmvc.web.repositories.UserRepository;
+import com.example.greetingmvc.repositories.RoleRepository;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,9 +16,12 @@ import java.util.stream.Collectors;
 @Service
 public class UserServiceImpl implements UserService {
 
+
     private UserRepository userRepository;
     private RoleRepository roleRepository;
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
 
     public UserServiceImpl(UserRepository userRepository,
                            RoleRepository roleRepository,
@@ -38,7 +41,7 @@ public class UserServiceImpl implements UserService {
 
         Role role = roleRepository.findByName("ROLE_ADMIN");
         if(role == null){
-            role = checkRoleExist();
+            throw new RuntimeException("ROLE_ADMIN role not found. Please make sure it exists.");
         }
         user.setRoles(Arrays.asList(role));
         userRepository.save(user);
@@ -59,14 +62,8 @@ public class UserServiceImpl implements UserService {
 
     private UserDto mapToUserDto(User user){
         UserDto userDto = new UserDto();
-        
+
         userDto.setEmail(user.getEmail());
         return userDto;
-    }
-
-    private Role checkRoleExist(){
-        Role role = new Role();
-        role.setName("ROLE_ADMIN");
-        return roleRepository.save(role);
     }
 }

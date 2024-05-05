@@ -1,4 +1,4 @@
-package com.example.greetingmvc.web.security;
+package com.example.greetingmvc.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -24,12 +24,13 @@ public class SpringSecurity {
     }
 
     @Bean
+
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
-                .authorizeHttpRequests((authorize) ->
-                        authorize.requestMatchers("/register/**").permitAll()
-                                .requestMatchers("/index").permitAll()
-                                .requestMatchers("/users").hasRole("ADMIN")
+                .authorizeRequests((authorize) ->
+                        authorize.antMatchers("/register/**").permitAll()
+                                .antMatchers("/index").permitAll()
+                                .antMatchers("/users").hasRole("ADMIN")
                 ).formLogin(
                         form -> form
                                 .loginPage("/login")

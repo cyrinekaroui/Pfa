@@ -1,15 +1,15 @@
-package com.example.greetingmvc.web.security;
+package com.example.greetingmvc.security;
 
 
+import com.example.greetingmvc.models.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import com.example.greetingmvc.web.repositories.UserRepository;
-import com.example.greetingmvc.web.models.User;
-import com.example.greetingmvc.web.models.Role;
+import com.example.greetingmvc.repositories.UserRepository;
+import com.example.greetingmvc.models.User;
 
 
 import java.util.Collection;
