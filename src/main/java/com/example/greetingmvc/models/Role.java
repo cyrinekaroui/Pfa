@@ -1,6 +1,9 @@
-package com.example.greetingmvc.web.models;
+package com.example.greetingmvc.models;
 
-import jakarta.persistence.*;
+
+import javax.persistence.*;
+
+import javax.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

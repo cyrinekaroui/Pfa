@@ -1,7 +1,10 @@
-package com.example.greetingmvc.web.models;
+package com.example.greetingmvc.models;
+
+
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.*;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
