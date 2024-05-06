@@ -14,6 +14,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 
@@ -68,10 +69,19 @@ public class AuthController {
         userService.saveUser(userDto);
         return "redirect:/register?success";
     }
+
     // handler method to handle login request
     @GetMapping("/login")
     public String login(){
         return "login";
+    }
+    @GetMapping({"/"})
+    public ModelAndView loadWelcomePage(){
+        ModelAndView mav = new ModelAndView("index");
+        User user = new User();
+        mav.addObject("user", user);
+
+        return mav;
     }
 }
 
