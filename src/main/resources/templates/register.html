@@ -29,21 +29,15 @@
             role="form"
             th:action="@{/register/save}"
             th:object="${user}">
-<<<<<<< HEAD
             <!-- 2 column grid layout with text inputs for the first and last names -->
-=======
             <!-- 2 column grid lyout with text inputs for the first and last names -->
->>>>>>> 71436bcf63f960cb3c10fcf98b5ffdd9e3e2373f
             <div class="row">
               <div class="col-md-6 mb-4">
                 <div data-mdb-input-init class="form-outline">
                   <input type="text" id="form3Example1" class="form-control"th:field="*{firstName}" />
-<<<<<<< HEAD
                   <p th:errors = "*{firstName}" class="text-danger"
               th:if="${#fields.hasErrors('firstName')}"></p>
             </div>
-=======
->>>>>>> 71436bcf63f960cb3c10fcf98b5ffdd9e3e2373f
 
                   <label class="form-label" for="form3Example1">First name</label>
                 </div>
@@ -51,11 +45,8 @@
               <div class="col-md-6 mb-4">
                 <div data-mdb-input-init class="form-outline">
                   <input type="text" id="form3Example2" class="form-control"th:field="*{lastName}"/>
-<<<<<<< HEAD
                   <p th:errors = "*{lastName}" class="text-danger"
                   th:if="${#fields.hasErrors('lastName')}"></p>
-=======
->>>>>>> 71436bcf63f960cb3c10fcf98b5ffdd9e3e2373f
                   <label class="form-label" for="form3Example2">Last name</label>
                 </div>
               </div>
@@ -64,22 +55,16 @@
             <!-- Email input -->
             <div data-mdb-input-init class="form-outline mb-4">
               <input type="email" id="emailbutton" class="form-control"th:field="*{email}" />
-<<<<<<< HEAD
               <p th:errors = "*{email}" class="text-danger"
               th:if="${#fields.hasErrors('email')}"></p>
-=======
->>>>>>> 71436bcf63f960cb3c10fcf98b5ffdd9e3e2373f
               <label class="form-label" for="form3Example3">Email address</label>
             </div>
 
             <!-- Password input -->
             <div data-mdb-input-init class="form-outline mb-4">
               <input type="password" id="passwordbutton" class="form-control" th:field="*{password}" />
-<<<<<<< HEAD
               <p th:errors = "*{password}" class="text-danger"
               th:if="${#fields.hasErrors('password')}"></p>
-=======
->>>>>>> 71436bcf63f960cb3c10fcf98b5ffdd9e3e2373f
               <label class="form-label" for="form3Example4">Password</label>
             </div>
 
@@ -98,27 +83,12 @@
 
             <!-- Register buttons -->
             <div class="text-center">
-<<<<<<< HEAD
 
-=======
               <p>or sign up with:</p>
->>>>>>> 71436bcf63f960cb3c10fcf98b5ffdd9e3e2373f
               <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
                 <i class="fab fa-facebook-f"></i>
               </button>
 
-              <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-google"></i>
-              </button>
-
-              <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-twitter"></i>
-              </button>
-
-              <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-github"></i>
-              </button>
-            </div>
           </form>
         </div>
       </div>
