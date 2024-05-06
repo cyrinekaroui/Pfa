@@ -11,6 +11,7 @@ import com.example.greetingmvc.repositories.RoleRepository;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -46,11 +47,13 @@ public class UserServiceImpl implements UserService {
         user.setRoles(Arrays.asList(role));
         userRepository.save(user);
     }
-
     @Override
     public User findUserByEmail(String email) {
-        return userRepository.findByEmail(email);
+        User user = userRepository.findByEmail(email);
+        return user;
+
     }
+
 
     @Override
     public List<UserDto> findAllUsers() {
